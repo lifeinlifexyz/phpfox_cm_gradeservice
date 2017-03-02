@@ -7,7 +7,7 @@ defined('PHPFOX') or exit('NO DICE!');
 	{_p('Questions')}
 </div>
 {if count($aQuestions)}
-<form method="post" action="{url link='admincp.gradeservice.questions.delete'}">
+<form method="post" action="{url link='admincp.gradeservice.questions'}">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th style="width:10px;"><input type="checkbox" name="delete[]" value="" id="js_check_box_all" class="main_checkbox" /></th>
@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				<div class="link_menu">
 					<ul>
 						<li><a class="popup" href="{url link='admincp.gradeservice.add-question' id=$aItem.question_id}">{_p('Edit')}</a></li>
-						<li><a href="{url link='admincp.gradeservice.questions.delete' delete[]=$aItem.question_id}" onclick="return confirm('{phrase var='core.are_you_sure'}');">{_p('Delete')}</a></li>
+						<li><a href="{url link='admincp.gradeservice.questions' delete[]=$aItem.question_id}" onclick="return confirm('{phrase var='core.are_you_sure'}');">{_p('Delete')}</a></li>
 					</ul>
 				</div>
 			</td>

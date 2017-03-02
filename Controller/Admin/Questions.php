@@ -22,7 +22,7 @@ class Questions extends Phpfox_Component
 
 		if (!empty($aDelete)) {
 			foreach($aDelete as $sFieldID) {
-				$oGradeService->delete($sFieldID);
+				Phpfox::getService('gradeservice.process')->delete($sFieldID);
 			}
 			$sMessage =  (count($aDelete) > 1) ? _p('Successfully deleted questions.') : _p('Successfully deleted the question.');
 			$this->url()->send('admincp.app', ['id' => 'CM_GradeService'], $sMessage);

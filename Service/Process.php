@@ -59,11 +59,11 @@ class Process extends \Phpfox_Service implements IFormly
     public function setStatus($iStatus, $iId)
     {
         return $this->database()->update(\Phpfox::getT($this->_sTable),
-            ['`is_active`' => $iStatus], '`' . $this->mKey . '` = ' . (int) $iId);
+            ['`is_active`' => $iStatus], '`' . $this->sKeyName . '` = ' . (int) $iId);
     }
 
     public function delete($iId)
     {
-        $this->database()->delete(\Phpfox::getT($this->_sTable),  '`' . $this->mKey . '` = ' . $iId);
+        $this->database()->delete(\Phpfox::getT($this->_sTable),  '`' . $this->sKeyName . '` = ' . (int)$iId);
     }
 }
