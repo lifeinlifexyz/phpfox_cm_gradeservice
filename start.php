@@ -4,10 +4,15 @@
 
 \Phpfox_Module::instance()
     ->addServiceNames([
+        'gradeservice.process' => '\Apps\CM_GradeService\Service\Process'
     ])
     ->addComponentNames('controller', [
+        'gradeservice.admincp.add-question' => 'Apps\CM_GradeService\Controller\Admin\AddQuestion'
     ])
-    ->addAliasNames('gradeservice', 'CM_GradeService');
+    ->addAliasNames('gradeservice', 'CM_GradeService')
+    ->addTemplateDirs([
+        'gradeservice' => PHPFOX_DIR_SITE_APPS . 'CM_GradeService' . PHPFOX_DS . 'views',
+    ]);
 
 event('app_settings', function ($settings){
     if (isset($settings['cm_dd_enabled'])) {
@@ -26,6 +31,7 @@ if (setting('cm_gradeservice_enabled') && Phpfox::getUserParam('gradeservice.vie
 group('/admincp/gradeservice/', function(){
 
     route('questions', 'gradeservice.admincp.questions');
+    route('add-question', 'gradeservice.admincp.add-question');
 
     /**
      * set status

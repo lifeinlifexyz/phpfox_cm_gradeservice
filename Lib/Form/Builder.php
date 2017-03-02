@@ -73,10 +73,10 @@ class Builder
         $oForm->setValidator($this->oValidator);
 
         if (isset($aFormData['form_id'])) {
-            (($sPlugin = \Phpfox_Plugin::get('digitaldownload.form_created_' . $aFormData['form_id'])) ? eval($sPlugin) : false);
+            (($sPlugin = \Phpfox_Plugin::get('gradeservice.form_created_' . $aFormData['form_id'])) ? eval($sPlugin) : false);
         }
 
-        (($sPlugin = \Phpfox_Plugin::get('digitaldownload.form_created')) ? eval($sPlugin) : false);
+        (($sPlugin = \Phpfox_Plugin::get('gradeservice.form_created')) ? eval($sPlugin) : false);
 
         foreach ($aFields as $aField) {
             $sType = $aField['type'];
@@ -86,27 +86,6 @@ class Builder
             $oForm->setFieldValue($aField['name'], $mValue);
         }
 
-        return $oForm;
-    }
-
-    public function buildFilterForm(array $aFields, array $aFormData = [])
-    {
-        $oForm = new  FilterForm($this->oView, $aFormData);
-        if (isset($aFormData['form_id'])) {
-            (($sPlugin = \Phpfox_Plugin::get('digitaldownload.form_created_' . $aFormData['form_id'])) ? eval($sPlugin) : false);
-        }
-
-        (($sPlugin = \Phpfox_Plugin::get('digitaldownload.form_created')) ? eval($sPlugin) : false);
-
-        $aSearch = $this->oRequest->getArray('search');
-        foreach ($aFields as $aField) {
-            $sType = $aField['type'];
-            $oForm->addField($sType, $aField);
-            $mValue = (isset($aSearch[$aField['name']]))
-                ? $aSearch[$aField['name']]
-                : (isset($aField['value']) ? $aField['value'] : null);
-            $oForm->setFieldValue($aField['name'], $mValue);
-        }
         return $oForm;
     }
 }

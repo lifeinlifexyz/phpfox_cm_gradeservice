@@ -1,0 +1,24 @@
+<label for="{{ name }}_field">{% if required %}<span class="required">*</span>{% endif %} {{ title }}</label>
+<select id="{{ name }}_field" class="form-control" name="{{ name }}">
+    <option value="" {% if value is empty %} selected {% endif %}>{{ _p('Select') }}</option>
+    {% for sName, controller in controllers %}
+        <option style="font-weight:bold;" {% if value == sName %}selected{% endif %} value="{{ sName }}">
+            {{ _p(sName) }}
+        </option>
+        {% for aCont in controller%}
+            <option value="{{ aCont.m_connection }}"  {% if value == aCont.m_connection %}selected{% endif %}>-- {{ aCont.m_connection}}</option>
+        {% endfor %}
+    {% endfor %}
+</select>
+
+{% if hasError %}
+<span class="help-block">
+        <ul>
+            {% for error in errors %}
+            <li>
+                {{ error }}
+            </li>
+            {% endfor %}
+        </ul>
+    </span>
+{% endif %}
