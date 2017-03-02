@@ -10,7 +10,7 @@
   },
   "admincp_route": "/admincp/gradeservice/questions",
   "admincp_menu": {
-    "Questions": "digitaldownload.questions",
+    "Questions": "gradeservice.questions"
   },
   "settings": {
     "cm_gradeservice_enabled": {
