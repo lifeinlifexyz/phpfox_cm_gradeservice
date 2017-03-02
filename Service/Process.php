@@ -51,34 +51,6 @@ class Process extends \Phpfox_Service implements IFormly
         ];
     }
 
-    public function getList()
-    {
-        return $this->database()
-            ->select("*")
-            ->from(\Phpfox::getT($this->_sTable))
-            ->order("`ordering` ASC")
-            ->execute('getslaverows');
-    }
-
-    public function all()
-    {
-        return $this->database()
-            ->select("*")
-            ->from(\Phpfox::getT($this->_sTable))
-            ->order("`ordering` ASC")
-            ->execute('getslaverows');
-    }
-
-    public function getActive()
-    {
-        return $this->database()
-            ->select("*")
-            ->from(\Phpfox::getT($this->_sTable))
-            ->where('is_active=1')
-            ->order("`ordering` ASC")
-            ->execute('getslaverows');
-    }
-
     /**
      * @param $iStatus integer
      * @param $iId int

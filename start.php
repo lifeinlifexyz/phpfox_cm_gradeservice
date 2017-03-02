@@ -4,10 +4,12 @@
 
 \Phpfox_Module::instance()
     ->addServiceNames([
-        'gradeservice.process' => '\Apps\CM_GradeService\Service\Process'
+        'gradeservice.process' => '\Apps\CM_GradeService\Service\Process',
+        'gradeservice' => '\Apps\CM_GradeService\Service\GradeService',
     ])
     ->addComponentNames('controller', [
-        'gradeservice.admincp.add-question' => 'Apps\CM_GradeService\Controller\Admin\AddQuestion'
+        'gradeservice.admincp.add-question' => 'Apps\CM_GradeService\Controller\Admin\AddQuestion',
+        'gradeservice.admincp.questions' => 'Apps\CM_GradeService\Controller\Admin\Questions',
     ])
     ->addAliasNames('gradeservice', 'CM_GradeService')
     ->addTemplateDirs([
