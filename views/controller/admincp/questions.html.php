@@ -36,7 +36,12 @@ defined('PHPFOX') or exit('NO DICE!');
 			<td>{$aItem.m_connection}</td>
 			<td>{$aItem.max_rate}</td>
 			<td>
-				{$aItem.rating}/{$aItem.count}&nbsp;{_p('Votes')}<br>
+				{if $aItem.rating > -1}
+					{$aItem.rating}
+				{else}
+					0
+				{/if}
+				/{$aItem.count}&nbsp;{_p('Votes')}<br>
 				<a href="{url link='admincp.gradeservice.statistics' id=$aItem.question_id}" class="popup">{_p('Show')}</a>
 			</td>
 			<td class="t_center">

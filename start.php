@@ -1,7 +1,5 @@
 <?php
 
-//todo:: close the download dir for read
-
 \Phpfox_Module::instance()
     ->addServiceNames([
         'gradeservice.process' => '\Apps\CM_GradeService\Service\Process',
