@@ -18,6 +18,9 @@ class Statistics extends \Phpfox_Component
         $aVotes = [];
 
         foreach($aQuestions as $aQuestion) {
+            if ($aQuestion['rating'] == -1) {
+                continue;
+            }
             if (empty($aQuestion['m_connection'])) {
                 $aQuestion['m_connection'] = _p('Site Wide');
             }

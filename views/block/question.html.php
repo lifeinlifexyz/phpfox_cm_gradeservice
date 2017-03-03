@@ -24,6 +24,7 @@ defined('PHPFOX') or exit('NO DICE!');
     $Behavior.openGrageServiceWindow = function(){
 
         $('#grade-service').modal('show');
+        $('.modal-backdrop').removeClass("modal-backdrop");
 
         $('#grade-service').on('hidden.bs.modal', function() {
 

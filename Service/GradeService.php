@@ -29,7 +29,7 @@ class GradeService extends \Phpfox_Service
             ->select('u.*, r.*')
             ->from(Phpfox::getT('gradeservice_rating'), 'r')
             ->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = r.user_id')
-            ->where('question_id=' . $iQuestionId)
+            ->where('question_id=' . $iQuestionId . ' AND rating > -1')
             ->all();
     }
 

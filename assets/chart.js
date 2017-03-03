@@ -30,7 +30,6 @@ $Ready(function () {
         for(var controller in raw_data) {
             rows.push([controller, parseInt(raw_data[controller])]);
         }
-
         data = new google.visualization.DataTable(rows);
         data.addColumn('string', 'Pizza');
         data.addColumn('number', 'Populartiy');
