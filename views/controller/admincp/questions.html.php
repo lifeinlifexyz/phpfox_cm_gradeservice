@@ -15,6 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
 			<th class="t_center" style="width:60px;">{_p('Question')}</th>
 			<th>{_p('Controller')}</th>
 			<th>{_p('Max rate')}</th>
+			<th>{_p('Statistics')}</th>
 			<th class="t_center" style="width:60px;">{_p('Active')}</th>
 		</tr>
 		{foreach from=$aQuestions key=iKey item=aItem}
@@ -34,6 +35,10 @@ defined('PHPFOX') or exit('NO DICE!');
 			</td>
 			<td>{$aItem.m_connection}</td>
 			<td>{$aItem.max_rate}</td>
+			<td>
+				{$aItem.rating}/{$aItem.count}&nbsp;{_p('Votes')}<br>
+				<a href="{url link='admincp.gradeservice.statistics' id=$aItem.question_id}" class="popup">{_p('Show')}</a>
+			</td>
 			<td class="t_center">
 				<div class="js_item_is_active"{if !$aItem.is_active} style="display:none;"{/if}>
 					<a href="#?call=gradeservice.setStatus&amp;id={$aItem.question_id}&amp;status=0" class="js_item_active_link" title="{_p var='Deactivate'}">{img theme='misc/bullet_green.png' alt=''}</a>

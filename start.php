@@ -10,6 +10,7 @@
     ->addComponentNames('controller', [
         'gradeservice.admincp.add-question' => 'Apps\CM_GradeService\Controller\Admin\AddQuestion',
         'gradeservice.admincp.questions' => 'Apps\CM_GradeService\Controller\Admin\Questions',
+        'gradeservice.admincp.statistics' => 'Apps\CM_GradeService\Controller\Admin\Statistics',
     ])
     ->addAliasNames('gradeservice', 'CM_GradeService')
     ->addTemplateDirs([
@@ -33,6 +34,7 @@ if (setting('cm_gradeservice_enabled') && Phpfox::getUserParam('gradeservice.vie
 group('/admincp/gradeservice/', function(){
 
     route('questions', 'gradeservice.admincp.questions');
+    route('statistics', 'gradeservice.admincp.statistics');
     route('add-question', 'gradeservice.admincp.add-question');
 
     /**

@@ -23,6 +23,25 @@ class GradeService extends \Phpfox_Service
             ->all();
     }
 
+    public function withStatistic()
+    {
+        return $this->database()
+            ->select("*")
+            ->from(\Phpfox::getT($this->_sTable))
+            ->order("`question_id` DESC")
+            ->all();
+    }
+
+    public function getRatingDetails($iQuestionId)
+    {
+        return $this->database()
+            ->select('u.*, r.*')
+            ->from(Phpfox::getT('gradeservice_rating'), 'r')
+            ->leftJoin(Phpfox::getT('user'), 'u', 'u.user_id = r.user_id')
+            ->where('question_id=' . $iQuestionId)
+            ->all();
+    }
+
     public function getActive()
     {
         $that = $this;

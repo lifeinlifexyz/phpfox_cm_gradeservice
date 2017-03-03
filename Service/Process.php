@@ -78,12 +78,26 @@ class Process extends \Phpfox_Service implements IFormly
         $aAlreadyRates[$iId] = $iId;
         Phpfox::setCookie('gradeservice_rate', json_encode($aAlreadyRates));
 
-        return $this->database()->insert(Phpfox::getT('gradeservice_rating'), [
+        $this->database()->insert(Phpfox::getT('gradeservice_rating'), [
             'question_id' => $iId,
             'rating' => $iRate,
             'user_id' => Phpfox::getUserId(),
             'time_stamp' => PHPFOX_TIME,
             'ip_address' => $this->request()->getIp(),
         ]);
+
+        $aRating = $this->calculateRating($iId);
+
+        $this->database()
+            ->update(Phpfox::getT($this->_sTable), $aRating, '`question_id` = ' .$iId);
+    }
+
+    public function calculateRating($iId)
+    {
+        return $this->database()
+            ->select('avg(`rating`) as `rating`, count(*) as `count`')
+            ->from(Phpfox::getT('gradeservice_rating'))
+            ->where('`question_id` = ' . $iId)
+            ->get();
     }
 }

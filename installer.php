@@ -8,6 +8,8 @@ $oInstaller->onInstall(function() use ($oInstaller){
       `max_rate` int(2) unsigned NOT NULL,
       `m_connection` varchar(75) NOT NULL DEFAULT \'\',
       `question` varchar(500) NOT NULL,
+      `rating` varchar(10) NOT NULL DEFAULT \'0\',
+      `count` varchar(10) NOT NULL DEFAULT \'0\',
       `is_active` tinyint(1) NOT NULL DEFAULT \'0\',
       PRIMARY KEY `question_id` (`question_id`),
       KEY `is_active` (`is_active`)
