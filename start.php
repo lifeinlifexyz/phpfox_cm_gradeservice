@@ -12,6 +12,9 @@
         'gradeservice.admincp.questions' => 'Apps\CM_GradeService\Controller\Admin\Questions',
         'gradeservice.admincp.statistics' => 'Apps\CM_GradeService\Controller\Admin\Statistics',
     ])
+    ->addComponentNames('block', [
+        'gradeservice.statistics' =>  '\Apps\CM_GradeService\Block\Statistics'
+    ])
     ->addAliasNames('gradeservice', 'CM_GradeService')
     ->addTemplateDirs([
         'gradeservice' => PHPFOX_DIR_SITE_APPS . 'CM_GradeService' . PHPFOX_DS . 'views',

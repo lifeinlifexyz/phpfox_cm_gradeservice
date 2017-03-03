@@ -90,6 +90,7 @@ class Process extends \Phpfox_Service implements IFormly
 
         $this->database()
             ->update(Phpfox::getT($this->_sTable), $aRating, '`question_id` = ' .$iId);
+        CMCache::remove('gradeservice_questions');
     }
 
     public function calculateRating($iId)

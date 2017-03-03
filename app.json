@@ -39,7 +39,8 @@
   },
   "component" : {
     "block" : {
-      "question" : ""
+      "question" : "",
+      "statistics" : ""
     }
   },
   "component_block" : {
@@ -48,6 +49,14 @@
       "m_connection" : "",
       "component" : "question",
       "location" : "7",
+      "is_active" : "1",
+      "ordering" : "3"
+    },
+    "Grade Service Statistics" : {
+      "type_id" : "0",
+      "m_connection" : "admincp.index",
+      "component" : "statistics",
+      "location" : "1",
       "is_active" : "1",
       "ordering" : "3"
     }
