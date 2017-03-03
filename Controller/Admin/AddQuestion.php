@@ -2,6 +2,7 @@
 
 namespace Apps\CM_GradeService\Controller\Admin;
 
+use Apps\CM_DigitalDownload\Lib\Cache\CMCache;
 use Apps\CM_GradeService\Lib\Form\DataBinding\IFormly;
 use Phpfox;
 use Phpfox_Component;
@@ -29,6 +30,7 @@ class AddQuestion extends Phpfox_Component
 
         if ($_POST && $oForm->isValid()) {
             $oForm->save();
+            CMCache::remove('gradeservice_questions');
             $this->url()->send('admincp.app',
                 [
                     'id' => 'CM_GradeService',
