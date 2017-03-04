@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
                 <p class="grade-service-rates">
                     {foreach from=$aQuestion.rate item=iRate}
                     <a title="{$iRate}" href="#?call=gradeservice.rate&amp;id={$aQuestion.question_id}&amp;rate={$iRate}"class="cm-vote-action">
-                        <i class="fa fa-star-o"></i>
+                        <span>{$iRate}</span>
                     </a>
                     {/foreach}
                 </p>

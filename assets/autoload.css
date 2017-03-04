@@ -1,10 +1,27 @@
-.grade-service-question,
-.grade-service-rates a{
-    font-size: 22px;
+.grade-service-question{
+    font-size: 18px;
+    text-align: center;
 }
+.grade-service-rates {
+    display: flex;
+    justify-content: center;
+}
+
 .grade-service-rates a {
-    color: #DAAB0F;
+    margin: 3px;
+    padding: 7px 15px;
+    background: #5BC0DE;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #41BADE;
+    box-shadow: 0 0 1px #000;
 }
+
+.grade-service-rates a:hover {
+    background: #47bcde;
+    color: #fff;
+}
+
 
 #grade-service {
     text-align: center;
