@@ -33,12 +33,16 @@ class Process extends \Phpfox_Service implements IFormly
                 'name' => 'm_connection',
                 'title' => _p('Controller'),
                 'controllers' => Phpfox::getService('admincp.component')->get(true),
+                'rules' => implode(':', Phpfox::getService('gradeservice')->getUsedControllers()) . ':notin',
+                'errorMessages' => [
+                   'm_connection.notin' => _p('This controller used already'),
+                ],
             ],
             'max_rate' => [
                 'type' => 'string',
                 'name' => 'max_rate',
                 'title' => _p('Max rate'),
-                'rules' => 'required|num|2:min|15:max',
+                'rules' => 'required|num|2:min|10:max',
             ],
             'is_active' => [
                 'type' => 'boolean',
@@ -86,11 +90,13 @@ class Process extends \Phpfox_Service implements IFormly
             'ip_address' => $this->request()->getIp(),
         ]);
 
-        $aRating = $this->calculateRating($iId);
+        if ($iRate > -1) {
+            $aRating = $this->calculateRating($iId);
 
-        $this->database()
-            ->update(Phpfox::getT($this->_sTable), $aRating, '`question_id` = ' .$iId);
-        CMCache::remove('gradeservice_questions');
+            $this->database()
+                ->update(Phpfox::getT($this->_sTable), $aRating, '`question_id` = ' .$iId);
+            CMCache::remove('gradeservice_questions');
+        }
     }
 
     public function calculateRating($iId)

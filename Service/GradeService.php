@@ -23,6 +23,22 @@ class GradeService extends \Phpfox_Service
             ->all();
     }
 
+    public function getUsedControllers()
+    {
+        $aControllers = $this->database()
+            ->select('m_connection')
+            ->from(Phpfox::getT($this->_sTable))
+            ->all();
+
+        $aRes = [];
+
+        foreach($aControllers as $aController) {
+            $aRes[] = $aController['m_connection'];
+        }
+
+        return $aRes;
+    }
+
     public function getRatingDetails($iQuestionId)
     {
         return $this->database()

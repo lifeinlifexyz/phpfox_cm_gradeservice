@@ -21,11 +21,13 @@ class Ajax extends Phpfox_Ajax
         $iRate = (int)$this->get('rate');
 
         Phpfox::getService('gradeservice.process')->rate($iId, $iRate);
-        $this->call('$("#grade-service").addClass("rated");');
-        $this->call('$("#grade-service").modal("hide");');
+        $this->call('$("#grade-service").addClass("rated").addClass("hover").addClass("cm-alert").addClass("cm-alert-success");');
 
         if ($iRate >= 0) {
-            $this->alert(_p('Thanks for your feedback'));
+            $this->call('$("#grade-service").html("' . _p('Thanks for your feedback') . '");');
         }
+
+        $this->call('setTimeout(function(){$("#grade-service").slideUp(300);},3000);');
+
     }
 }

@@ -4,11 +4,13 @@
 namespace Apps\CM_GradeService\Block;
 
 
+use Phpfox;
+
 class Question extends \Phpfox_Component
 {
     public function process()
     {
-        if (!\Phpfox::isUser()) {
+        if (!\Phpfox::isUser() && Phpfox::getUserParam('gradeservice.view_gradeservice')) {
             return false;
         }
 

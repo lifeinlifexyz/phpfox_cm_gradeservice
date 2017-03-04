@@ -24,7 +24,7 @@ event('app_settings', function ($settings){
     }
 });
 
-if (setting('cm_gradeservice_enabled') && Phpfox::getUserParam('gradeservice.view_gradeservice')) {
+if (setting('cm_gradeservice_enabled')) {
     \Phpfox_Module::instance()->addComponentNames('ajax', [
         'gradeservice.ajax'        => '\Apps\CM_GradeService\Ajax\Ajax',
     ])->addComponentNames('block', [
