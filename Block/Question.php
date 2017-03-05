@@ -10,10 +10,9 @@ class Question extends \Phpfox_Component
 {
     public function process()
     {
-        if (!\Phpfox::isUser() && Phpfox::getUserParam('gradeservice.view_gradeservice')) {
+        if (!\Phpfox::isUser() || Phpfox::getUserParam('gradeservice.view_gradeservice')) {
             return false;
         }
-
         $aQuestion = \Phpfox::getService('gradeservice')->getModuleQuestions();
 
         if (!empty($aQuestion)) {
