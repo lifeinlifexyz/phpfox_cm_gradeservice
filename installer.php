@@ -24,5 +24,5 @@ $oInstaller->onInstall(function() use ($oInstaller){
       KEY `question_id` (`question_id`,`user_id`)
     ) ');
 
-
+    Phpfox::getLib('cache')->remove();
 });
