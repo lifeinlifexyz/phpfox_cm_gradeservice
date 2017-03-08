@@ -20,6 +20,10 @@ class Statistics extends Phpfox_Component
 		 */
 		$oGradeService = Phpfox::getService('gradeservice');
 
+		if (empty($oGradeService)) {
+			return false;
+		}
+
 		$this->template()
 			->setTitle(_p('Statistics'))
 			->setBreadCrumb(_p('Statistics'));
