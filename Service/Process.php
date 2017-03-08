@@ -20,6 +20,13 @@ class Process extends \Phpfox_Service implements IFormly
      */
     public function getFieldsInfo()
     {
+        $aControllers = Phpfox::getService('gradeservice')->getUsedControllers();
+
+        foreach($aControllers as $key => $iContrller) {
+            $aControllers[$key] = (int)  $iContrller;
+
+        }
+
         return [
             'question' => [
                 'type' => 'mstring',
@@ -33,7 +40,7 @@ class Process extends \Phpfox_Service implements IFormly
                 'name' => 'm_connection',
                 'title' => _p('Controller'),
                 'controllers' => Phpfox::getService('admincp.component')->get(true),
-                'rules' => implode(':', Phpfox::getService('gradeservice')->getUsedControllers()) . ':notin',
+                'rules' => empty($aControllers) ? 'num' : implode(':', $aControllers) . ':notin',
                 'errorMessages' => [
                    'm_connection.notin' => _p('This controller used already'),
                 ],
