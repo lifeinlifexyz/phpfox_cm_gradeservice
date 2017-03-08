@@ -9,7 +9,7 @@ class Ajax extends Phpfox_Ajax
     public function setStatus()
     {
         \Phpfox::isAdmin(true);
-        \Phpfox::getService('gradeservice.process')->setStatus($this->get('status'), $this->get('id'));
+        \Phpfox::getService('gradeservice.process')->setStatus($this->get('active'), $this->get('id'));
     }
 
     public function rate()
