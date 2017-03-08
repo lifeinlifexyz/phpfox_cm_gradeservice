@@ -34,6 +34,8 @@ class Statistics extends Phpfox_Component
 			$this->template()->assign([
 				'aRates' => $aRates,
 			]);
+
+			return 'block';
 		}
 	}
 
