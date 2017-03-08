@@ -40,7 +40,7 @@ class Process extends \Phpfox_Service implements IFormly
                 'name' => 'm_connection',
                 'title' => _p('Controller'),
                 'controllers' => Phpfox::getService('admincp.component')->get(true),
-                'rules' => empty($aControllers) ? 'num' : implode(':', $aControllers) . ':notin',
+                'rules' => empty($aControllers) ? 'alphabet' : implode(':', $aControllers) . ':notin',
                 'errorMessages' => [
                    'm_connection.notin' => _p('This controller used already'),
                 ],
