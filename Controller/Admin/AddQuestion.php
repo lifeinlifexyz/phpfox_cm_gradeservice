@@ -2,7 +2,7 @@
 
 namespace Apps\CM_GradeService\Controller\Admin;
 
-use Apps\CM_DigitalDownload\Lib\Cache\CMCache;
+use Apps\CM_GradeService\Lib\Cache\CMCache;
 use Apps\CM_GradeService\Lib\Form\DataBinding\IFormly;
 use Phpfox;
 use Phpfox_Component;
