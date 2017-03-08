@@ -26,16 +26,9 @@ class Statistics extends Phpfox_Component
 
 		if (($iId = $this->request()->getInt('id'))) {
 			$aRates = $oGradeService->getRatingDetails($iId);
-
-			if (empty($aRates)) {
-				return false;
-			}
-
 			$this->template()->assign([
 				'aRates' => $aRates,
 			]);
-
-			return 'block';
 		}
 	}
 

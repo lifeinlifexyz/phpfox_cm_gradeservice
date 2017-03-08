@@ -1,6 +1,4 @@
 <?php
-
-
 namespace Apps\CM_GradeService\Block;
 
 
@@ -13,6 +11,10 @@ class Statistics extends \Phpfox_Component
         }
 
         $aQuestions = \Phpfox::getService('gradeservice')->getActive();
+
+        if (empty($aQuestions)) {
+            return false;
+        }
 
         $aRating = [];
         $aVotes = [];
