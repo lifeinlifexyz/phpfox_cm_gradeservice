@@ -1,3 +1,10 @@
+<h2>Paid Support:</h2>       
+<p>The phpfox apps and themes by codemake are provided under the MIT license with no commercial support or liability. 
+<a href="mailto:phpfox@lifeinlife.xyz">phpfox@lifeinlife.xyz</a> also provides commercial support and professional customisation services.</p>
+
+
+
+
 <h2>PHPFox Grade Service</h2>
 
 There are situations when you don't know, what clients think about your products and services. It is very important to know opinions of clients in order to implement a successful project.
